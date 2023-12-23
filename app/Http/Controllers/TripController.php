@@ -78,4 +78,11 @@ class TripController extends Controller
 
         return view('pages.searched_trip', compact('trips', 'booking_info'));
     }
+
+    public function storeTicket(Request $request)
+    {
+
+       
+        return $request;
+    }
 }
