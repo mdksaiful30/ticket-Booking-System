@@ -3,11 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Location;
+use App\Models\SeatAllocation;
 use App\Models\Trip;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
+
+    public function index()
+    {
+
+        $totalTrips = Trip::count();
+        $totalUsers = User::count();
+        $totalTickets = SeatAllocation::count();
+        $locations = Location::count();
+
+        return view('pages.index', compact('totalTrips', 'totalUsers', 'totalTickets', 'locations'));
+    }
+
     public function addTrip()
     {
         $locations = Location::get();
@@ -76,5 +90,4 @@ class TripController extends Controller
         return view('pages.searched_trip', compact('trips', 'booking_info'));
     }
 
-   
 }

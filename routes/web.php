@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('master');
-});
+Route::get('/', [TripController::class, 'index'])->name('index');
 
 Route::get('/trip', [TripController::class, 'addTrip'])->name('add.trip');
 Route::post('/trip', [TripController::class, 'storeTrip'])->name('store.trip');
