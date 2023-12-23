@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('start_location_id')->constrained('locations')->cascadeOnUpdate();
             $table->foreignId('end_location_id')->constrained('locations')->cascadeOnUpdate();
             $table->date('date');
-            $table->integer('available_ticket')->default(36);
+            $table->integer('available_ticket')->default(36)->check('available_ticket >= 0');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->usecurrentOnUpdate();
         });

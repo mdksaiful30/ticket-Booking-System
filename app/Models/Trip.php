@@ -14,4 +14,16 @@ class Trip extends Model
     {
         return $this->belongsTo(Location::class);
     }
+
+   
+
+    public function startLocation()
+    {
+        return $this->belongsTo(Location::class, 'start_location_id')->select('id', 'name');
+    }
+
+    public function endLocation()
+    {
+        return $this->belongsTo(Location::class, 'end_location_id')->select('id', 'name');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SeatAllocationController;
 use App\Http\Controllers\TripController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,5 @@ Route::get('/trip', [TripController::class, 'addTrip'])->name('add.trip');
 Route::post('/trip', [TripController::class, 'storeTrip'])->name('store.trip');
 Route::get('/book', [TripController::class, 'bookTrip'])->name('book.trip');
 Route::post('/book', [TripController::class, 'searchTrip'])->name('search.trip');
-Route::post('/ticket', [TripController::class, 'storeTicket'])->name('store.ticket');
+Route::post('/ticket', [SeatAllocationController::class, 'storeTicket'])->name('store.ticket');
+Route::get('/ticket', [SeatAllocationController::class, 'getTicket'])->name('get.ticket');

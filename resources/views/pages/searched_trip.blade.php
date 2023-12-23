@@ -32,6 +32,12 @@
                 </div>
                 <form method="post" action="{{ route('store.ticket') }}">
                     @csrf
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
                     @foreach ($booking_info as $key => $value)
                         <input type="hidden" name="booking_info[{{ $key }}]" value="{{ $value }}">
                     @endforeach
@@ -55,18 +61,25 @@
                                         <td class="ps-md-3">{{ $trip->available_ticket }}</td>
 
                                         <td class="input-group">
-                                            <select class="form-select" aria-label="Default select example" name="quantity"
+                                            <select class="form-select" aria-label="Default select example"
+                                                name="quantity[{{ $trip->id }}]"
                                                 {{ $trip->available_ticket == 0 ? 'disabled' : '' }}>
 
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
+                                                <option value=1 {{ old('quantity.' . $trip->id) == 1 ? 'selected' : '' }}>1
+                                                </option>
+                                                <option value=2 {{ old('quantity.' . $trip->id) == 2 ? 'selected' : '' }}>2
+                                                </option>
+                                                <option value=3 {{ old('quantity.' . $trip->id) == 3 ? 'selected' : '' }}>3
+                                                </option>
+                                                <option value=4 {{ old('quantity.' . $trip->id) == 4 ? 'selected' : '' }}>4
+                                                </option>
                                             </select>
-
+                                            @error('quantity.' . $trip->id)
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </td>
 
-                                        
+
                                         <td class="table-action">
                                             @if ($trip->available_ticket > 0)
                                                 <button type="submit" class="btn btn-sm btn-success" name="trip_id"

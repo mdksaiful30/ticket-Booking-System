@@ -62,27 +62,19 @@ class TripController extends Controller
 
         $startLocation = Location::where('id', $request->start_location_id)->select('name')->first();
         $endLocation = Location::where('id', $request->end_location_id)->select('name')->first();
-        $date = Trip::where('date', $request->date)
-            ->first();
+        // $date = Trip::where('date', $request->date)
+        //     ->first();
 
         $booking_info = [
             'name'           => $request->name,
             'mobile'         => $request->mobile,
             'start_location' => $startLocation->name,
             'end_location'   => $endLocation->name,
-            'date'           => $date->date,
+            'date'           => $request->date,
         ];
-
-        // return response($trips);
-        // return response($booking_info);
 
         return view('pages.searched_trip', compact('trips', 'booking_info'));
     }
 
-    public function storeTicket(Request $request)
-    {
-
-       
-        return $request;
-    }
+   
 }

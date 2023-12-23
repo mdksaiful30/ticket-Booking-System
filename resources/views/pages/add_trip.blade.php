@@ -25,8 +25,8 @@
                 @endif
 
                 <div class="mb-3">
-                    
-                    <input class="form-control" type="text" id="productname" name="name" placeholder="Trip Name"
+
+                    <input class="form-control" type="text" id="productname" name="name" placeholder="Bus/Trip Name"
                         value="{{ old('name') }}" required>
                     @error('name')
                         <div class="text-danger">{{ $message }}</div>
@@ -64,7 +64,7 @@
                 <div class="mb-3">
                     <div class="input-group date" id="datetimepicker" data-target-input="nearest">
                         <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker"
-                            name="date" value="{{ old('date') }}"/>
+                            name="date" value="{{ old('date') }}" />
                     </div>
 
                     @error('date')

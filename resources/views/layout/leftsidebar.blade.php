@@ -22,7 +22,7 @@
                 <li>
                     <a href={{ route('add.trip') }}>
                         <i class="mdi mdi-television-guide"></i>
-                        <span>Create Trip </span>
+                        <span>Create a Trip </span>
                     </a>
                 </li>
 
@@ -34,9 +34,10 @@
                 </li>
 
                 <li>
-                    <a href="/update_price">
+
+                    <a href={{ route('get.ticket') }}>
                         <i class="mdi mdi-clipboard-check"></i>
-                        <span>Purchase Ticket List</span>
+                        <span>Purchased Ticket List</span>
                     </a>
                 </li>
 
