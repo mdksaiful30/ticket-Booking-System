@@ -20,6 +20,5 @@ Route::get('/', function () {
 
 Route::get('/trip', [TripController::class, 'addTrip'])->name('add.trip');
 Route::post('/trip', [TripController::class, 'storeTrip'])->name('store.trip');
-Route::get('/trip/search', [TripController::class, 'searchTrip'])->name('search.trip');
-
-
+Route::get('/book', [TripController::class, 'bookTrip'])->name('book.trip');
+Route::post('/book', [TripController::class, 'searchTrip'])->name('search.trip');

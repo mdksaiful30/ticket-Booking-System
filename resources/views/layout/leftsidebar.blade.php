@@ -27,8 +27,7 @@
                 </li>
 
                 <li>
-                    {{-- <a href={{ route('add.sale') }}> --}}
-                    <a href="#">
+                    <a href={{ route('book.trip') }}>
                         <i class="mdi mdi-forum-outline"></i>
                         <span>Booking a Trip</span>
                     </a>
